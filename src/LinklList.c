@@ -86,11 +86,25 @@ Node *remove_head(LList *list) {
 
 
 GenericError goto_next(LList  *list) {
-    return -1;
+    if (!list || !list->current || !list->current->next) {return -1;}
+    Node *curNode = list->current;
+    Node *curNext = curNode->next;
+
+    list->current = curNext;
+    list->index++;
+
+    return 0;
 }
 
 GenericError goto_prev(LList *list) {
-    return -1;
+    if (!list || !list->current || !list->current->prev) {return -1;}
+    Node *curNode = list->current;
+    Node *curPrev = curNode->prev;
+
+    list->current = curPrev;
+    list->index--;
+
+    return 0;
 }
 
 Node *get_next(LList *list) {
