@@ -1,5 +1,6 @@
-#include "ErrorSys.h"
 #include "stdbool.h"
+#define METHOD_FAILURE NULL;
+typedef int GenericError;
 
 typedef struct Data Data;
 struct Data {
