@@ -108,11 +108,17 @@ GenericError goto_prev(LList *list) {
 }
 
 Node *get_next(LList *list) {
-    return METHOD_FAILURE;
+    if (!list || !list->current || !list->current->next) {return METHOD_FAILURE;}
+    Node *curNode = list->current;
+    Node *curNext = curNode->next;
+    return curNext;
 }
 
 Node *get_prev(LList *list) {
-    return METHOD_FAILURE;
+    if (!list || !list->current || !list->current->prev) {return METHOD_FAILURE;}
+    Node *curNode = list->current;
+    Node *curPrev = curNode->prev;
+    return curPrev;
 }
 
 GenericError generic_add_item(LList *list, bool beforeCurrent) {
