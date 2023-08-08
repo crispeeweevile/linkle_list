@@ -13,8 +13,8 @@ LList *create_llist(Node *node);
 GenericError free_llist(LList *list, bool freeData);
 GenericError insert_at_tail(LList *list, Node *node);
 GenericError insert_at_head(LList *list, Node *node);
-GenericError remove_tail(LList *list);
-GenericError remove_head(LList *list);
+Node *remove_tail(LList *list);
+Node *remove_head(LList *list);
 
 GenericError goto_next(LList  *list);
 GenericError goto_prev(LList *list);
