@@ -65,7 +65,22 @@ Node *remove_tail(LList *list) {
 }
 
 Node *remove_head(LList *list) {
-    return METHOD_FAILURE;
+    if (!list || !list->current || !list->head) {return METHOD_FAILURE;}
+    Node *curNode = list->current;
+    Node *headNode = list->head;
+
+    if (headNode == curNode) {
+        generic_remove_item(list, false);
+        goto_next(list);
+    } else {generic_remove_item(list, true);}
+
+    Node *headNext = headNode->next;
+    if (!headNext) {return METHOD_FAILURE};
+    headNext->prev = NULL;
+    headNode->next = NULL;
+    list->head = headNext;
+
+    return headNode;
 }
 
 
