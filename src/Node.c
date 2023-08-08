@@ -2,7 +2,7 @@
 #include "GenUtils.h"
 
 Node *create_node(Data *data) {
-    if (!data) {return NULL;}
+    if (!data) {return METHOD_FAILURE;}
     Node *nNode = smalloc(sizeof(Node));
 
     nNode->data = data;
@@ -23,6 +23,6 @@ int free_node (Node *node, bool freeData) {
     node->next = NULL;
     node->prev = NULL;
     free(node);
-    
+
     return 0;
 }
